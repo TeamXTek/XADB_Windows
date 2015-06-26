@@ -116,4 +116,9 @@ Public Class Form2
         InitializeComponent()
         deviceRunning = device
     End Sub
+
+    Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
+        Dim newForm4 As Form4 = New Form4(deviceRunning)
+        newForm4.Show()
+    End Sub
 End Class

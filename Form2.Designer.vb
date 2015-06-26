@@ -65,6 +65,7 @@ Partial Class Form2
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.TextBox6 = New System.Windows.Forms.TextBox
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.Button15 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -408,9 +409,9 @@ Partial Class Form2
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(379, 492)
+        Me.Button13.Location = New System.Drawing.Point(460, 492)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(253, 23)
+        Me.Button13.Size = New System.Drawing.Size(172, 23)
         Me.Button13.TabIndex = 19
         Me.Button13.Text = "Close this window"
         Me.Button13.UseVisualStyleBackColor = True
@@ -445,11 +446,21 @@ Partial Class Form2
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Install an apk"
         '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(379, 492)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 23)
+        Me.Button15.TabIndex = 23
+        Me.Button15.Text = "Device Info"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 547)
+        Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Button13)
@@ -526,4 +537,5 @@ Partial Class Form2
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents Button15 As System.Windows.Forms.Button
 End Class
