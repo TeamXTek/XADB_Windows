@@ -17,6 +17,8 @@ Public Class Form4
         If Replace(cmVer, vbCrLf, "").TrimEnd <> "" Then
             Label1.Text = Label1.Text + vbCrLf + vbCrLf + "Cyanogenmod version:"
             Label2.Text = Label2.Text + cmVer
+            Label1.Text = Label1.Text + vbCrLf + vbCrLf + "Cyanogenmod codename:"
+            Label2.Text = Label2.Text + execInShellReturnOutput("adb -s " + deviceRunning + " shell getprop ro.cm.device")
         End If
         RichTextBox1.Text = Replace(execInShellReturnOutput("adb -s " + deviceRunning + " shell cat /proc/cpuinfo"), vbCr, vbCrLf)
         refreshMemInfo()

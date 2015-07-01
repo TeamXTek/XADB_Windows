@@ -42,7 +42,7 @@ Partial Class Form4
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(498, 181)
+        Me.GroupBox1.Size = New System.Drawing.Size(498, 203)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ROM Info"
@@ -50,7 +50,7 @@ Partial Class Form4
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(123, 18)
+        Me.Label2.Location = New System.Drawing.Point(146, 18)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 12)
         Me.Label2.TabIndex = 1
@@ -67,9 +67,9 @@ Partial Class Form4
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.RichTextBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 199)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 221)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(249, 289)
+        Me.GroupBox2.Size = New System.Drawing.Size(249, 282)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cpu Info"
@@ -79,16 +79,16 @@ Partial Class Form4
         Me.RichTextBox1.Location = New System.Drawing.Point(7, 22)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(236, 261)
+        Me.RichTextBox1.Size = New System.Drawing.Size(236, 245)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.RichTextBox2)
-        Me.GroupBox3.Location = New System.Drawing.Point(268, 200)
+        Me.GroupBox3.Location = New System.Drawing.Point(268, 221)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(242, 288)
+        Me.GroupBox3.Size = New System.Drawing.Size(242, 282)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Memory Info"
@@ -111,7 +111,7 @@ Partial Class Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 500)
+        Me.ClientSize = New System.Drawing.Size(523, 517)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
