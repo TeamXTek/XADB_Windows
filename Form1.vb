@@ -1,7 +1,7 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form1
     Public ADBPath As String = My.Application.Info.DirectoryPath + "\adb.exe "
-    Public ADBDeviceSelected(10) As String
+    Public ADBDeviceSelected(10) As String, DeviceIndex As Integer
     Dim ADBexist As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
@@ -41,7 +41,8 @@ Public Class Form1
                 If checkIfDeviceAlreadySelected(ComboBox1.Text) Then
                     MsgBox("Window of that device already created!" + vbCrLf + "Just use the window ""XADB-" + ComboBox1.Text + """")
                 Else
-                    ADBDeviceSelected.SetValue(ComboBox1.Text, 0)
+                    ADBDeviceSelected.SetValue(ComboBox1.Text, DeviceIndex)
+                    DeviceIndex += 1
                     Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
                     newForm2.Show()
                 End If
