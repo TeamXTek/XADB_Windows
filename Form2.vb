@@ -1,8 +1,6 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form2
     Public fileext As New Scripting.FileSystemObject
-    Dim shellex As String
-    Dim pro As New Process
     Dim deviceRunning As String
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -13,9 +11,9 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If fileext.FileExists(TextBox1.Text) Then
-            RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text)
+            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text)
         Else
-            MsgBox(TextBox1.Text + " does not exist!")
+            MsgBox("File " + TextBox1.Text + " does not exist!")
         End If
     End Sub
 
@@ -24,19 +22,19 @@ Public Class Form2
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot")
+        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot")
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot recovery")
+        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot recovery")
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot bootloader")
+        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot bootloader")
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        RichTextBox1.Text = RichTextBox1.Text + vbCrLf + Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, vbCrLf)
+        RichTextBox1.Text += vbCrLf + Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, vbCrLf)
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
@@ -56,10 +54,10 @@ Public Class Form2
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         If fileext.FileExists(TextBox2.Text) Then
-            RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
+            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
         Else
             If fileext.FolderExists(TextBox2.Text) Then
-                RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
+                RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
             Else
                 MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
             End If
@@ -74,12 +72,12 @@ Public Class Form2
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
         If fileext.FolderExists(TextBox4.Text) Then
-            RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text)
+            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text)
         Else
             If TextBox4.Text = "" Then
-                RichTextBox1.Text = RichTextBox1.Text + vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text)
+                RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text)
             Else
-                MsgBox(TextBox2.Text + " does not exist!")
+                MsgBox("Folder " + TextBox2.Text + " does not exist!")
             End If
         End If
     End Sub
@@ -112,6 +110,7 @@ Public Class Form2
         FolderBrowserDialog1.ShowDialog()
         TextBox2.Text = FolderBrowserDialog1.SelectedPath
     End Sub
+    
     Public Sub New(ByVal device As String)
         InitializeComponent()
         deviceRunning = device
