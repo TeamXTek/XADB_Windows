@@ -4,17 +4,7 @@ Public Class Form1
     Public ADBDeviceSelected(10) As String, DeviceIndex As Integer
     Dim ADBexist As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
-        RichTextBox1.Text = sOutput
-        Dim sOutputSpilt As Array
-        sOutputSpilt = Split(sOutput, vbCrLf)
-        ComboBox1.Items.Clear()
-        Dim a As Byte
-        For a = 1 To sOutputSpilt.GetUpperBound(0)
-            If Replace(Replace(sOutputSpilt(a), "device", ""), " ", "") <> "" Then
-                ComboBox1.Items.Add(Replace(Replace(sOutputSpilt(a), "device", ""), " ", "").TrimEnd)
-            End If
-        Next
+        updateADBDevices()
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -37,15 +27,13 @@ Public Class Form1
                 MsgBox("Device is unauthorized." + vbCrLf + "Please check the confirmation dialog on your device.")
             ElseIf ComboBox1.Text.EndsWith("recovery") Then
                 MsgBox("Device is in recovery mode!" + vbCrLf + "Reboot your device into Android first!")
+            ElseIf checkIfDeviceAlreadySelected(ComboBox1.Text) Then
+                MsgBox("Window of that device already created!" + vbCrLf + "Just use the window ""XADB-" + ComboBox1.Text + """")
             Else
-                If checkIfDeviceAlreadySelected(ComboBox1.Text) Then
-                    MsgBox("Window of that device already created!" + vbCrLf + "Just use the window ""XADB-" + ComboBox1.Text + """")
-                Else
-                    ADBDeviceSelected.SetValue(ComboBox1.Text, DeviceIndex)
-                    DeviceIndex += 1
-                    Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
-                    newForm2.Show()
-                End If
+                ADBDeviceSelected.SetValue(ComboBox1.Text, DeviceIndex)
+                DeviceIndex += 1
+                Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
+                newForm2.Show()
             End If
         Else
             MsgBox("Select a device first")
@@ -53,7 +41,8 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        RichTextBox1.Text = execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP of the wireless device."))
+        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP of the wireless device."))
+        updateADBDevices()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
@@ -71,4 +60,16 @@ Public Class Form1
         Next
         Return False
     End Function
+    
+    Public Sub updateADBDevices()
+        RichTextBox1.Text = execInShellReturnOutput(ADBPath + "devices")
+        Dim sOutputSpilt As Array = Split(sOutput, vbCrLf)
+        ComboBox1.Items.Clear()
+        Dim a As Byte
+        For a = 1 To sOutputSpilt.GetUpperBound(0)
+            If Replace(Replace(sOutputSpilt(a), "device", ""), " ", "") <> "" Then
+                ComboBox1.Items.Add(Replace(Replace(sOutputSpilt(a), "device", ""), " ", "").TrimEnd)
+            End If
+        Next
+    End Sub
 End Class
