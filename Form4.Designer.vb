@@ -115,6 +115,7 @@ Partial Class Form4
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximizeBox = False
         Me.Name = "Form4"
         Me.Text = "XADB-Device Info"
         Me.GroupBox1.ResumeLayout(False)

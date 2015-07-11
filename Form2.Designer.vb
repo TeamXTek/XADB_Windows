@@ -478,6 +478,7 @@ Partial Class Form2
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "Form2"
         Me.Text = "XADB"
         Me.GroupBox1.ResumeLayout(False)

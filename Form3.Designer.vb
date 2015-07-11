@@ -162,7 +162,7 @@ Partial Class Form3
         '
         Me.MountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemAsRwToolStripMenuItem, Me.AsRwToolStripMenuItem})
         Me.MountToolStripMenuItem.Name = "MountToolStripMenuItem"
-        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.MountToolStripMenuItem.Text = "Mount"
         '
         'SystemAsRwToolStripMenuItem
@@ -189,6 +189,7 @@ Partial Class Form3
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "Form3"
         Me.Text = "XADB-Device File Manager"
         Me.ContextMenuStrip1.ResumeLayout(False)

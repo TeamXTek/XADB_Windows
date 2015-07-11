@@ -62,7 +62,8 @@ Public Class Form1
     End Function
     
     Public Sub updateADBDevices()
-        RichTextBox1.Text = execInShellReturnOutput(ADBPath + "devices")
+        Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
+        RichTextBox1.Text = sOutput
         Dim sOutputSpilt As Array = Split(sOutput, vbCrLf)
         ComboBox1.Items.Clear()
         Dim a As Byte

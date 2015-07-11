@@ -126,6 +126,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button1)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "XADB-Device Selection"
         Me.ResumeLayout(False)
