@@ -1,7 +1,7 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form1
     Public ADBPath As String = My.Application.Info.DirectoryPath + "\adb.exe "
-    Public ADBDeviceSelected(10) As String, DeviceIndex As Integer
+    Public ADBDeviceSelected(10) As String, DeviceIndex As Byte
     Dim ADBexist As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         updateADBDevices()
@@ -11,7 +11,7 @@ Public Class Form1
         Label4.Text = "Version:" + String.Format(My.Application.Info.Version.ToString)
         If ADBexist.FileExists(ADBPath) Then
             execInShellReturnOutput(ADBPath + "start-server")
-            MsgBox("ADB found!!" + vbCrLf + "Now the server is started")
+            updateADBDevices()
         Else
             MsgBox("ADB not found!!" + vbCrLf + "Copy ADB files to " + My.Application.Info.DirectoryPath + " first!")
             Me.Close()
@@ -36,12 +36,12 @@ Public Class Form1
                 newForm2.Show()
             End If
         Else
-            MsgBox("Select a device first")
+            MsgBox("Select a device first.")
         End If
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP of the wireless device."))
+        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address of the wireless device."))
         updateADBDevices()
     End Sub
 
@@ -68,8 +68,8 @@ Public Class Form1
         ComboBox1.Items.Clear()
         Dim a As Byte
         For a = 1 To sOutputSpilt.GetUpperBound(0)
-            If Replace(Replace(sOutputSpilt(a), "device", ""), " ", "") <> "" Then
-                ComboBox1.Items.Add(Replace(Replace(sOutputSpilt(a), "device", ""), " ", "").TrimEnd)
+            If Replace(sOutputSpilt(a), "device", "").TrimEnd <> "" Then
+                ComboBox1.Items.Add(Replace(sOutputSpilt(a), "device", "").TrimEnd)
             End If
         Next
     End Sub
