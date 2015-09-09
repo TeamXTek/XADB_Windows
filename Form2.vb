@@ -98,7 +98,7 @@ Public Class Form2
     End Sub
 
     Private Sub GoToTeamWALADBlogForMoreHelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Click
-        Shell("cmd.exe /c start http://blog.xuite.net/david20000612/TeamWALAD")
+        Shell("start http://blog.xuite.net/david20000612/TeamWALAD")
     End Sub
 
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
