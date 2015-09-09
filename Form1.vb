@@ -68,9 +68,8 @@ Public Class Form1
         ComboBox1.Items.Clear()
         Dim a As Byte
         For a = 1 To sOutputSpilt.GetUpperBound(0)
-            If Replace(sOutputSpilt(a), "device", "").TrimEnd <> "" Then
-                ComboBox1.Items.Add(Replace(sOutputSpilt(a), "device", "").TrimEnd)
-            End If
+            Dim temp As String = Replace(sOutputSpilt(a), "device", "").TrimEnd
+            If temp <> "" Then ComboBox1.Items.Add(temp)
         Next
     End Sub
 End Class
