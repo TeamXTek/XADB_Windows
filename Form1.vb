@@ -60,15 +60,15 @@ Public Class Form1
         Next
         Return False
     End Function
-    
+
     Public Sub updateADBDevices()
         Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
         RichTextBox1.Text = sOutput
         Dim sOutputSpilt As Array = Split(sOutput, vbCrLf)
         ComboBox1.Items.Clear()
         Dim a As Byte
-        For a = 1 To sOutputSpilt.GetUpperBound(0)
-            Dim temp As String = Replace(sOutputSpilt(a), "device", "").TrimEnd
+        For a = 1 To sOutputSpilt.GetUpperBound(0) - 2
+            Dim temp As String = Replace(Replace(sOutputSpilt(a), "device", ""), " ", "")
             If temp <> "" Then ComboBox1.Items.Add(temp)
         Next
     End Sub
