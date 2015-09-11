@@ -20,11 +20,11 @@ Public Class Form4
             Label1.Text = Label1.Text + vbCrLf + vbCrLf + "Cyanogenmod codename:"
             Label2.Text = Label2.Text + execInShellReturnOutput("adb -s " + deviceRunning + " shell getprop ro.cm.device")
         End If
-        RichTextBox1.Text = Replace(execInShellReturnOutput("adb -s " + deviceRunning + " shell cat /proc/cpuinfo"), vbCr, vbCrLf)
+        RichTextBox1.Text = Replace(execInShellReturnOutput("adb -s " + deviceRunning + " shell cat /proc/cpuinfo"), vbCr, "")
         refreshMemInfo()
     End Sub
     Public Sub refreshMemInfo()
-        RichTextBox2.Text = Replace(execInShellReturnOutput("adb -s " + deviceRunning + " shell cat /proc/meminfo"), vbCr, vbCrLf)
+        RichTextBox2.Text = Replace(execInShellReturnOutput("adb -s " + deviceRunning + " shell cat /proc/meminfo"), vbCr, "")
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
