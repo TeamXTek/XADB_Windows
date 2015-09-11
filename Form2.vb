@@ -112,4 +112,10 @@ Public Class Form2
         Dim newForm4 As Form4 = New Form4(deviceRunning)
         newForm4.Show()
     End Sub
+
+    Private Sub TextBox6_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox6.KeyPress
+        If e.KeyChar = Chr(13) Then
+            RichTextBox1.Text += Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, "") + vbCrLf
+        End If
+    End Sub
 End Class

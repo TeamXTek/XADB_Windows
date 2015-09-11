@@ -22,25 +22,25 @@ Partial Class Form3
     '請不要使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.ListBox1 = New System.Windows.Forms.ListBox
+        Me.components = New System.ComponentModel.Container()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PullToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.RenameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.NewFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.TextBox1 = New System.Windows.Forms.TextBox
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.ActionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.MountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.SystemAsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.AsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PullToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RenameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ActionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SystemAsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -61,43 +61,43 @@ Partial Class Form3
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem, Me.PullToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.RenameToolStripMenuItem, Me.NewFolderToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(140, 136)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(138, 136)
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'PullToolStripMenuItem
         '
         Me.PullToolStripMenuItem.Name = "PullToolStripMenuItem"
-        Me.PullToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.PullToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.PullToolStripMenuItem.Text = "Pull"
         '
         'CopyToolStripMenuItem
         '
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.CopyToolStripMenuItem.Text = "Copy"
         '
         'PasteToolStripMenuItem
         '
         Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.PasteToolStripMenuItem.Text = "Paste"
         Me.PasteToolStripMenuItem.Visible = False
         '
         'RenameToolStripMenuItem
         '
         Me.RenameToolStripMenuItem.Name = "RenameToolStripMenuItem"
-        Me.RenameToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.RenameToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.RenameToolStripMenuItem.Text = "Rename"
         '
         'NewFolderToolStripMenuItem
         '
         Me.NewFolderToolStripMenuItem.Name = "NewFolderToolStripMenuItem"
-        Me.NewFolderToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.NewFolderToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.NewFolderToolStripMenuItem.Text = "New folder"
         '
         'Label1
@@ -154,7 +154,7 @@ Partial Class Form3
         '
         Me.ActionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MountToolStripMenuItem})
         Me.ActionToolStripMenuItem.Name = "ActionToolStripMenuItem"
-        Me.ActionToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.ActionToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.ActionToolStripMenuItem.Text = "Action"
         Me.ActionToolStripMenuItem.Visible = False
         '
@@ -162,19 +162,19 @@ Partial Class Form3
         '
         Me.MountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemAsRwToolStripMenuItem, Me.AsRwToolStripMenuItem})
         Me.MountToolStripMenuItem.Name = "MountToolStripMenuItem"
-        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.MountToolStripMenuItem.Text = "Mount"
         '
         'SystemAsRwToolStripMenuItem
         '
         Me.SystemAsRwToolStripMenuItem.Name = "SystemAsRwToolStripMenuItem"
-        Me.SystemAsRwToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.SystemAsRwToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.SystemAsRwToolStripMenuItem.Text = "/system as r/w"
         '
         'AsRwToolStripMenuItem
         '
         Me.AsRwToolStripMenuItem.Name = "AsRwToolStripMenuItem"
-        Me.AsRwToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.AsRwToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.AsRwToolStripMenuItem.Text = "/ as r/w"
         '
         'Form3

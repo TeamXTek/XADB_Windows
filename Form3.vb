@@ -117,7 +117,7 @@ Public Class Form3
             Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
-    
+
     Public Sub ADBRootAndRemount()
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " root")
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " remount")
