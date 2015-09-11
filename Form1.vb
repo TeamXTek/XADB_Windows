@@ -1,7 +1,6 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form1
     Public ADBPath As String = My.Application.Info.DirectoryPath + "\adb.exe "
-    Public ADBDeviceSelected(10) As String, DeviceIndex As Byte
     Dim ADBexist As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         updateADBDevices()
@@ -20,23 +19,17 @@ Public Class Form1
 
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        If ComboBox1.Text <> "" Then
-            If ComboBox1.Text.EndsWith("offline") Then
-                MsgBox("Device is offline.")
-            ElseIf ComboBox1.Text.EndsWith("unauthorized") Then
-                MsgBox("Device is unauthorized." + vbCrLf + "Please check the confirmation dialog on your device.")
-            ElseIf ComboBox1.Text.EndsWith("recovery") Then
-                MsgBox("Device is in recovery mode!" + vbCrLf + "Reboot your device into Android first!")
-            ElseIf checkIfDeviceAlreadySelected(ComboBox1.Text) Then
-                MsgBox("Window of that device already created!" + vbCrLf + "Just use the window ""XADB-" + ComboBox1.Text + """")
-            Else
-                ADBDeviceSelected.SetValue(ComboBox1.Text, DeviceIndex)
-                DeviceIndex += 1
-                Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
-                newForm2.Show()
-            End If
-        Else
+        If ComboBox1.Text = "" Then
             MsgBox("Select a device first.")
+        ElseIf ComboBox1.Text.EndsWith("offline") Then
+            MsgBox("Device is offline.")
+        ElseIf ComboBox1.Text.EndsWith("unauthorized") Then
+            MsgBox("Device is unauthorized." + vbCrLf + "Please check the confirmation dialog on your device.")
+        ElseIf ComboBox1.Text.EndsWith("recovery") Then
+            MsgBox("Device is in recovery mode!" + vbCrLf + "Reboot your device into Android first!")
+        Else
+            Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
+            newForm2.Show()
         End If
     End Sub
 
@@ -54,13 +47,6 @@ Public Class Form1
         MsgBox(execInShellReturnOutput(ADBPath + "version"))
     End Sub
 
-    Public Function checkIfDeviceAlreadySelected(ByVal device As String) As Boolean
-        For i = ADBDeviceSelected.GetLowerBound(0) To ADBDeviceSelected.GetUpperBound(0)
-            If device = ADBDeviceSelected(i) Then Return True
-        Next
-        Return False
-    End Function
-
     Public Sub updateADBDevices()
         Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
         RichTextBox1.Text = sOutput
@@ -68,7 +54,7 @@ Public Class Form1
         ComboBox1.Items.Clear()
         Dim a As Byte
         For a = 1 To sOutputSpilt.GetUpperBound(0) - 2
-            Dim temp As String = Replace(Replace(sOutputSpilt(a), "device", ""), " ", "")
+            Dim temp As String = Replace(Replace(Replace(sOutputSpilt(a), "device", ""), " ", ""), vbTab, "")
             If temp <> "" Then ComboBox1.Items.Add(temp)
         Next
     End Sub
