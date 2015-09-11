@@ -99,7 +99,7 @@ Partial Class Form4
         Me.RichTextBox2.Location = New System.Drawing.Point(6, 21)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(230, 261)
+        Me.RichTextBox2.Size = New System.Drawing.Size(230, 246)
         Me.RichTextBox2.TabIndex = 1
         Me.RichTextBox2.TabStop = False
         Me.RichTextBox2.Text = ""
