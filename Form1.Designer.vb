@@ -22,15 +22,15 @@ Partial Class Form1
     '請不要使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.Button4 = New System.Windows.Forms.Button
-        Me.Button5 = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -48,7 +48,8 @@ Partial Class Form1
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(260, 96)
-        Me.RichTextBox1.TabIndex = 1
+        Me.RichTextBox1.TabIndex = 2
+        Me.RichTextBox1.TabStop = False
         Me.RichTextBox1.Text = ""
         '
         'ComboBox1
@@ -65,7 +66,7 @@ Partial Class Form1
         Me.Label3.Location = New System.Drawing.Point(11, 193)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(129, 12)
-        Me.Label3.TabIndex = 6
+        Me.Label3.TabIndex = 7
         Me.Label3.Text = "Select a device / emulator :"
         '
         'Label4
@@ -81,7 +82,7 @@ Partial Class Form1
         Me.Button2.Location = New System.Drawing.Point(197, 216)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 8
+        Me.Button2.TabIndex = 6
         Me.Button2.Text = "Select"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -90,7 +91,7 @@ Partial Class Form1
         Me.Button3.Location = New System.Drawing.Point(194, 19)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 9
+        Me.Button3.TabIndex = 1
         Me.Button3.Text = "Wireless"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -99,7 +100,7 @@ Partial Class Form1
         Me.Button4.Location = New System.Drawing.Point(197, 149)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 10
+        Me.Button4.TabIndex = 3
         Me.Button4.Text = "Restart server"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -108,7 +109,7 @@ Partial Class Form1
         Me.Button5.Location = New System.Drawing.Point(12, 216)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 11
+        Me.Button5.TabIndex = 5
         Me.Button5.Text = "ADB version"
         Me.Button5.UseVisualStyleBackColor = True
         '

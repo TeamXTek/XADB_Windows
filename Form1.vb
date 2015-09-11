@@ -41,7 +41,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address of the wireless device."))
+        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address and port of the wireless device."))
         updateADBDevices()
     End Sub
 

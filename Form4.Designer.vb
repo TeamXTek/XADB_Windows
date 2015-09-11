@@ -22,14 +22,14 @@ Partial Class Form4
     '請不要使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
+        Me.components = New System.ComponentModel.Container()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -81,6 +81,7 @@ Partial Class Form4
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(236, 245)
         Me.RichTextBox1.TabIndex = 0
+        Me.RichTextBox1.TabStop = False
         Me.RichTextBox1.Text = ""
         '
         'GroupBox3
@@ -100,6 +101,7 @@ Partial Class Form4
         Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(230, 261)
         Me.RichTextBox2.TabIndex = 1
+        Me.RichTextBox2.TabStop = False
         Me.RichTextBox2.Text = ""
         '
         'Timer1

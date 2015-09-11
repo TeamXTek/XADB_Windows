@@ -22,50 +22,50 @@ Partial Class Form2
     '請不要使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.Button4 = New System.Windows.Forms.Button
-        Me.Button5 = New System.Windows.Forms.Button
-        Me.Button6 = New System.Windows.Forms.Button
-        Me.Button7 = New System.Windows.Forms.Button
-        Me.Button8 = New System.Windows.Forms.Button
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
-        Me.TextBox2 = New System.Windows.Forms.TextBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.Button14 = New System.Windows.Forms.Button
-        Me.Button10 = New System.Windows.Forms.Button
-        Me.TextBox3 = New System.Windows.Forms.TextBox
-        Me.Button9 = New System.Windows.Forms.Button
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.Button12 = New System.Windows.Forms.Button
-        Me.Button11 = New System.Windows.Forms.Button
-        Me.TextBox4 = New System.Windows.Forms.TextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.TextBox5 = New System.Windows.Forms.TextBox
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.DeviceFileManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.InstallApkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PushPullToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.Button13 = New System.Windows.Forms.Button
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.TextBox6 = New System.Windows.Forms.TextBox
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox
-        Me.Button15 = New System.Windows.Forms.Button
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeviceFileManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InstallApkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PushPullToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -86,7 +86,7 @@ Partial Class Form2
         Me.Button1.Location = New System.Drawing.Point(269, 21)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "Install"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -95,7 +95,7 @@ Partial Class Form2
         Me.Button2.Location = New System.Drawing.Point(188, 21)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
+        Me.Button2.TabIndex = 2
         Me.Button2.Text = "File..."
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -111,6 +111,7 @@ Partial Class Form2
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(253, 421)
         Me.RichTextBox1.TabIndex = 4
+        Me.RichTextBox1.TabStop = False
         Me.RichTextBox1.Text = ""
         '
         'Label2
@@ -127,7 +128,7 @@ Partial Class Form2
         Me.Button3.Location = New System.Drawing.Point(557, 36)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 6
+        Me.Button3.TabIndex = 24
         Me.Button3.Text = "Clear"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -136,7 +137,7 @@ Partial Class Form2
         Me.Button4.Location = New System.Drawing.Point(14, 492)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 7
+        Me.Button4.TabIndex = 19
         Me.Button4.Text = "Reboot"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -145,7 +146,7 @@ Partial Class Form2
         Me.Button5.Location = New System.Drawing.Point(156, 492)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 8
+        Me.Button5.TabIndex = 20
         Me.Button5.Text = "Recovery"
         Me.Button5.UseVisualStyleBackColor = True
         '
@@ -154,7 +155,7 @@ Partial Class Form2
         Me.Button6.Location = New System.Drawing.Point(289, 492)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 9
+        Me.Button6.TabIndex = 21
         Me.Button6.Text = "Bootloader"
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -163,7 +164,7 @@ Partial Class Form2
         Me.Button7.Location = New System.Drawing.Point(269, 21)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 10
+        Me.Button7.TabIndex = 18
         Me.Button7.Text = "Exec"
         Me.Button7.UseVisualStyleBackColor = True
         '
@@ -172,7 +173,7 @@ Partial Class Form2
         Me.Button8.Location = New System.Drawing.Point(183, 21)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(161, 23)
-        Me.Button8.TabIndex = 11
+        Me.Button8.TabIndex = 16
         Me.Button8.Text = "Open Device File Manager"
         Me.Button8.UseVisualStyleBackColor = True
         '
@@ -185,7 +186,7 @@ Partial Class Form2
         Me.GroupBox1.Location = New System.Drawing.Point(14, 327)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(350, 94)
-        Me.GroupBox1.TabIndex = 13
+        Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Device File Manager"
         '
@@ -197,7 +198,7 @@ Partial Class Form2
         Me.CheckBox3.Location = New System.Drawing.Point(8, 62)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(181, 16)
-        Me.CheckBox3.TabIndex = 23
+        Me.CheckBox3.TabIndex = 15
         Me.CheckBox3.Text = "Change script directory to /sdcard"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
@@ -207,7 +208,7 @@ Partial Class Form2
         Me.CheckBox2.Location = New System.Drawing.Point(8, 40)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(112, 16)
-        Me.CheckBox2.TabIndex = 13
+        Me.CheckBox2.TabIndex = 14
         Me.CheckBox2.Text = "Run with Busybox"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
@@ -217,7 +218,7 @@ Partial Class Form2
         Me.CheckBox1.Location = New System.Drawing.Point(8, 18)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(78, 16)
-        Me.CheckBox1.TabIndex = 12
+        Me.CheckBox1.TabIndex = 13
         Me.CheckBox1.Text = "Run as root"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -226,7 +227,7 @@ Partial Class Form2
         Me.TextBox2.Location = New System.Drawing.Point(33, 21)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(201, 22)
-        Me.TextBox2.TabIndex = 14
+        Me.TextBox2.TabIndex = 4
         '
         'GroupBox2
         '
@@ -240,7 +241,7 @@ Partial Class Form2
         Me.GroupBox2.Location = New System.Drawing.Point(14, 121)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(350, 88)
-        Me.GroupBox2.TabIndex = 15
+        Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Push a file / folder into device"
         '
@@ -249,7 +250,7 @@ Partial Class Form2
         Me.Button14.Location = New System.Drawing.Point(240, 19)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(56, 23)
-        Me.Button14.TabIndex = 20
+        Me.Button14.TabIndex = 5
         Me.Button14.Text = "Folder..."
         Me.Button14.UseVisualStyleBackColor = True
         '
@@ -258,7 +259,7 @@ Partial Class Form2
         Me.Button10.Location = New System.Drawing.Point(269, 48)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 19
+        Me.Button10.TabIndex = 8
         Me.Button10.Text = "Push"
         Me.Button10.UseVisualStyleBackColor = True
         '
@@ -267,14 +268,14 @@ Partial Class Form2
         Me.TextBox3.Location = New System.Drawing.Point(35, 52)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(223, 22)
-        Me.TextBox3.TabIndex = 18
+        Me.TextBox3.TabIndex = 7
         '
         'Button9
         '
         Me.Button9.Location = New System.Drawing.Point(302, 19)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(42, 23)
-        Me.Button9.TabIndex = 17
+        Me.Button9.TabIndex = 6
         Me.Button9.Text = "File..."
         Me.Button9.UseVisualStyleBackColor = True
         '
@@ -307,7 +308,7 @@ Partial Class Form2
         Me.GroupBox3.Location = New System.Drawing.Point(14, 233)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(350, 88)
-        Me.GroupBox3.TabIndex = 16
+        Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Pull a file / folder from device"
         '
@@ -316,7 +317,7 @@ Partial Class Form2
         Me.Button12.Location = New System.Drawing.Point(269, 50)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(75, 23)
-        Me.Button12.TabIndex = 20
+        Me.Button12.TabIndex = 12
         Me.Button12.Text = "Folder..."
         Me.Button12.UseVisualStyleBackColor = True
         '
@@ -325,7 +326,7 @@ Partial Class Form2
         Me.Button11.Location = New System.Drawing.Point(269, 20)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(75, 23)
-        Me.Button11.TabIndex = 19
+        Me.Button11.TabIndex = 10
         Me.Button11.Text = "Pull"
         Me.Button11.UseVisualStyleBackColor = True
         '
@@ -334,7 +335,7 @@ Partial Class Form2
         Me.TextBox4.Location = New System.Drawing.Point(35, 52)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(223, 22)
-        Me.TextBox4.TabIndex = 18
+        Me.TextBox4.TabIndex = 11
         '
         'Label5
         '
@@ -359,7 +360,7 @@ Partial Class Form2
         Me.TextBox5.Location = New System.Drawing.Point(33, 21)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(225, 22)
-        Me.TextBox5.TabIndex = 14
+        Me.TextBox5.TabIndex = 9
         '
         'StatusStrip1
         '
@@ -382,31 +383,31 @@ Partial Class Form2
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeviceFileManagerToolStripMenuItem, Me.InstallApkToolStripMenuItem, Me.PushPullToolStripMenuItem, Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'DeviceFileManagerToolStripMenuItem
         '
         Me.DeviceFileManagerToolStripMenuItem.Name = "DeviceFileManagerToolStripMenuItem"
-        Me.DeviceFileManagerToolStripMenuItem.Size = New System.Drawing.Size(284, 22)
+        Me.DeviceFileManagerToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
         Me.DeviceFileManagerToolStripMenuItem.Text = "Device File Manager"
         '
         'InstallApkToolStripMenuItem
         '
         Me.InstallApkToolStripMenuItem.Name = "InstallApkToolStripMenuItem"
-        Me.InstallApkToolStripMenuItem.Size = New System.Drawing.Size(284, 22)
+        Me.InstallApkToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
         Me.InstallApkToolStripMenuItem.Text = "Install apk"
         '
         'PushPullToolStripMenuItem
         '
         Me.PushPullToolStripMenuItem.Name = "PushPullToolStripMenuItem"
-        Me.PushPullToolStripMenuItem.Size = New System.Drawing.Size(284, 22)
+        Me.PushPullToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
         Me.PushPullToolStripMenuItem.Text = "Push ,Pull"
         '
         'GoToTeamWALADBlogForMoreHelpToolStripMenuItem
         '
         Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Name = "GoToTeamWALADBlogForMoreHelpToolStripMenuItem"
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Size = New System.Drawing.Size(284, 22)
+        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
         Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Text = "Go to Team XTek blog for more help"
         '
         'Button13
@@ -414,7 +415,7 @@ Partial Class Form2
         Me.Button13.Location = New System.Drawing.Point(460, 492)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(172, 23)
-        Me.Button13.TabIndex = 19
+        Me.Button13.TabIndex = 23
         Me.Button13.Text = "Close this window"
         Me.Button13.UseVisualStyleBackColor = True
         '
@@ -425,7 +426,7 @@ Partial Class Form2
         Me.GroupBox4.Location = New System.Drawing.Point(14, 427)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(350, 59)
-        Me.GroupBox4.TabIndex = 21
+        Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Exec in shell"
         '
@@ -434,7 +435,7 @@ Partial Class Form2
         Me.TextBox6.Location = New System.Drawing.Point(8, 22)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(247, 22)
-        Me.TextBox6.TabIndex = 11
+        Me.TextBox6.TabIndex = 17
         '
         'GroupBox5
         '
@@ -444,7 +445,7 @@ Partial Class Form2
         Me.GroupBox5.Location = New System.Drawing.Point(14, 36)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(350, 62)
-        Me.GroupBox5.TabIndex = 22
+        Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Install an apk"
         '
@@ -453,7 +454,7 @@ Partial Class Form2
         Me.Button15.Location = New System.Drawing.Point(379, 492)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
-        Me.Button15.TabIndex = 23
+        Me.Button15.TabIndex = 22
         Me.Button15.Text = "Device Info"
         Me.Button15.UseVisualStyleBackColor = True
         '
