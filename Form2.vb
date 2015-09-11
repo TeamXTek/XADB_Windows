@@ -11,7 +11,7 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If fileext.FileExists(TextBox1.Text) Then
-            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text)
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text) + vbCrLf
         Else
             MsgBox("File " + TextBox1.Text + " does not exist!")
         End If
@@ -22,19 +22,19 @@ Public Class Form2
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot")
+        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot") + vbCrLf
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot recovery")
+        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot recovery") + vbCrLf
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot bootloader")
+        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot bootloader") + vbCrLf
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        RichTextBox1.Text += vbCrLf + Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, vbCrLf)
+        RichTextBox1.Text += Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, "") + vbCrLf
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
@@ -53,14 +53,10 @@ Public Class Form2
     End Sub
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
-        If fileext.FileExists(TextBox2.Text) Then
-            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
+        If fileext.FileExists(TextBox2.Text) OrElse fileext.FolderExists(TextBox2.Text) Then
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text) + vbCrLf
         Else
-            If fileext.FolderExists(TextBox2.Text) Then
-                RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text)
-            Else
-                MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
-            End If
+            MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
         End If
     End Sub
 
@@ -71,14 +67,10 @@ Public Class Form2
     End Sub
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
-        If fileext.FolderExists(TextBox4.Text) Then
-            RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text)
+        If fileext.FolderExists(TextBox4.Text) OrElse (TextBox4.Text = "") Then
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text) + vbCrLf
         Else
-            If TextBox4.Text = "" Then
-                RichTextBox1.Text += vbCrLf + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text)
-            Else
-                MsgBox("Folder " + TextBox2.Text + " does not exist!")
-            End If
+            MsgBox("Folder " + TextBox4.Text + " does not exist!")
         End If
     End Sub
 
@@ -98,7 +90,7 @@ Public Class Form2
     End Sub
 
     Private Sub GoToTeamWALADBlogForMoreHelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Click
-        Shell("start http://blog.xuite.net/david20000612/TeamWALAD")
+        Shell("cmd.exe /c start http://blog.xuite.net/david20000612/TeamWALAD")
     End Sub
 
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
