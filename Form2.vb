@@ -118,4 +118,5 @@ Public Class Form2
             RichTextBox1.Text += Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, "") + vbCrLf
         End If
     End Sub
+
 End Class

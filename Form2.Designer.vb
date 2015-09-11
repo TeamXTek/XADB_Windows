@@ -101,7 +101,6 @@ Partial Class Form2
         '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         Me.OpenFileDialog1.Filter = "APK|*.apk"
         '
         'RichTextBox1

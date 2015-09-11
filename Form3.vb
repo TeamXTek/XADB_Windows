@@ -172,11 +172,9 @@ Public Class Form3
             Dim renamefrom As String = GoToPath + Replace(SelectedFloder, vbCr, "")
             If renameto.Contains(" ") Then
                 MsgBox("No spaces are allowed in name!")
-            Else
-                If MsgBox("Rename " + renamefrom + " to " + renameto + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                    execInShellReturnOutput(execpart + " mv " + renamefrom + " " + renameto)
-                    Call DeviceFileBrowser_EnterFloder()
-                End If
+            ElseIf MsgBox("Rename " + renamefrom + " to " + renameto + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                execInShellReturnOutput(execpart + " mv " + renamefrom + " " + renameto)
+                Call DeviceFileBrowser_EnterFloder()
             End If
         End If
     End Sub
@@ -185,11 +183,9 @@ Public Class Form3
         createdir = GoToPath + InputBox("Enter a name...")
         If createdir.Contains(" ") Then
             MsgBox("No spaces are allowed in name!")
-        Else
-            If MsgBox("Create " + createdir + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                execInShellReturnOutput(execpart + " mkdir " + createdir)
-                Call DeviceFileBrowser_EnterFloder()
-            End If
+        ElseIf MsgBox("Create " + createdir + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+            execInShellReturnOutput(execpart + " mkdir " + createdir)
+            Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
 
