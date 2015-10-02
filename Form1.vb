@@ -1,6 +1,6 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form1
-    Public ADBPath As String = My.Application.Info.DirectoryPath + "\adb.exe "
+    Public ADBPath As String
     Dim ADBexist As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         updateADBDevices()
@@ -8,11 +8,16 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label4.Text = "Version:" + String.Format(My.Application.Info.Version.ToString)
+        ADBPath = My.Application.Info.DirectoryPath + "\adb.exe "
         If ADBexist.FileExists(ADBPath) Then
             execInShellReturnOutput(ADBPath + "start-server")
             updateADBDevices()
+        ElseIf ADBexist.FileExists(Replace(Replace(execInShellReturnOutput("where adb"), " ", ""), vbCrLf, ""))
+            ADBPath = "adb "
+            execInShellReturnOutput(ADBPath + "start-server")
+            updateADBDevices()
         Else
-            MsgBox("ADB not found!!" + vbCrLf + "Copy ADB files to " + My.Application.Info.DirectoryPath + " first!")
+            MsgBox("ADB Not found!!" + vbCrLf + "Copy ADB files To " + My.Application.Info.DirectoryPath + " or add adb to %PATH% first!")
             Me.Close()
         End If
     End Sub
@@ -22,11 +27,11 @@ Public Class Form1
         If ComboBox1.Text = "" Then
             MsgBox("Select a device first.")
         ElseIf ComboBox1.Text.EndsWith("offline") Then
-            MsgBox("Device is offline.")
+            MsgBox("Device Is offline.")
         ElseIf ComboBox1.Text.EndsWith("unauthorized") Then
-            MsgBox("Device is unauthorized." + vbCrLf + "Please check the confirmation dialog on your device.")
+            MsgBox("Device Is unauthorized." + vbCrLf + "Please check the confirmation dialog On your device.")
         ElseIf ComboBox1.Text.EndsWith("recovery") Then
-            MsgBox("Device is in recovery mode!" + vbCrLf + "Reboot your device into Android first!")
+            MsgBox("Device Is In recovery mode!" + vbCrLf + "Reboot your device into Android first!")
         Else
             Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
             newForm2.Show()
@@ -34,7 +39,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address and port of the wireless device."))
+        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address And port Of the wireless device."))
         updateADBDevices()
     End Sub
 
@@ -53,7 +58,7 @@ Public Class Form1
         Dim sOutputSpilt As Array = Split(sOutput, vbCrLf)
         ComboBox1.Items.Clear()
         Dim a As Byte
-        For a = 1 To sOutputSpilt.GetUpperBound(0) - 2
+        For a = 1 To sOutputSpilt.GetUpperBound(0)
             Dim temp As String = Replace(Replace(Replace(sOutputSpilt(a), "device", ""), " ", ""), vbTab, "")
             If temp <> "" Then ComboBox1.Items.Add(temp)
         Next
