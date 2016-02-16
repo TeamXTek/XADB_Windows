@@ -1,6 +1,6 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form4
-    Dim deviceRunning As String
+    Private deviceRunning As String
     Public Sub New(ByVal device As String)
         InitializeComponent()
         deviceRunning = device
@@ -23,7 +23,7 @@ Public Class Form4
         RichTextBox1.Text = Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell cat /proc/cpuinfo"), vbCr, "")
         refreshMemInfo()
     End Sub
-    Public Sub refreshMemInfo()
+    Private Sub refreshMemInfo()
         RichTextBox2.Text = Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell cat /proc/meminfo"), vbCr, "")
     End Sub
 

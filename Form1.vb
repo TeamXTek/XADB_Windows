@@ -1,7 +1,7 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form1
     Public ADBPath As String
-    Dim ADBexist As New Scripting.FileSystemObject
+    Private FSO As New Scripting.FileSystemObject
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         updateADBDevices()
     End Sub
@@ -9,10 +9,10 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label4.Text = "Version:" + String.Format(My.Application.Info.Version.ToString)
         ADBPath = My.Application.Info.DirectoryPath + "\adb.exe "
-        If ADBexist.FileExists(ADBPath) Then
+        If FSO.FileExists(ADBPath) Then
             execInShellReturnOutput(ADBPath + "start-server")
             updateADBDevices()
-        ElseIf ADBexist.FileExists(Replace(Replace(execInShellReturnOutput("where adb"), " ", ""), vbCrLf, ""))
+        ElseIf FSO.FileExists(Replace(Replace(execInShellReturnOutput("where adb"), " ", ""), vbCrLf, ""))
             ADBPath = "adb "
             execInShellReturnOutput(ADBPath + "start-server")
             updateADBDevices()
@@ -52,7 +52,7 @@ Public Class Form1
         MsgBox(execInShellReturnOutput(ADBPath + "version"))
     End Sub
 
-    Public Sub updateADBDevices()
+    Private Sub updateADBDevices()
         Dim sOutput As String = execInShellReturnOutput(ADBPath + "devices")
         RichTextBox1.Text = sOutput
         Dim sOutputSpilt As Array = Split(sOutput, vbCrLf)

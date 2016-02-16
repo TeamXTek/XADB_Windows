@@ -1,11 +1,11 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form3
-    Dim SelectedFloder As String, GoToPath As String, GoToPathBak As String
-    Dim ChkTypePC As String = My.Application.Info.DirectoryPath + "\XADBChkType.sh", copyfrom As String, copyto As String
-    Dim createdir As String, execpart As String, execwobb As String, chktypeandroid As String
-    Dim useRoot As Boolean, useBusybox As Boolean, changeToSd As Boolean
-    Dim fileext As Scripting.FileSystemObject = New Scripting.FileSystemObject
-    Dim deviceRunning As String
+    Private SelectedFloder As String, GoToPath As String, GoToPathBak As String
+    Private ChkTypePC As String = My.Application.Info.DirectoryPath + "\XADBChkType.sh", copyfrom As String, copyto As String
+    Private createdir As String, execpart As String, execwobb As String, chktypeandroid As String
+    Private useRoot As Boolean, useBusybox As Boolean, changeToSd As Boolean
+    Private FSO As Scripting.FileSystemObject = New Scripting.FileSystemObject
+    Private deviceRunning As String
 
     Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
         DeviceFileBrowser_CheckTypeAndEnter()
@@ -89,14 +89,14 @@ Public Class Form3
         End If
     End Sub
 
-    Public Sub PushChkTypeScript()
-        If fileext.FileExists(ChkTypePC) = False Then
+    Private Sub PushChkTypeScript()
+        If FSO.FileExists(ChkTypePC) = False Then
             MsgBox("Type checking script was not found!" + vbCrLf + "Please put XADBChkType.sh in " + vbCrLf + My.Application.Info.DirectoryPath)
         End If
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + ChkTypePC + chktypeandroid)
     End Sub
 
-    Public Sub DeleteFileOrFolder()
+    Private Sub DeleteFileOrFolder()
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
@@ -118,7 +118,7 @@ Public Class Form3
         End If
     End Sub
 
-    Public Sub ADBRootAndRemount()
+    Private Sub ADBRootAndRemount()
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " root")
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " remount")
     End Sub

@@ -1,7 +1,7 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form2
-    Public fileext As New Scripting.FileSystemObject
-    Dim deviceRunning As String
+    Private FSO As New Scripting.FileSystemObject
+    Private deviceRunning As String
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         OpenFileDialog1.Filter = "APK|*.apk"
@@ -10,7 +10,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If fileext.FileExists(TextBox1.Text) Then
+        If FSO.FileExists(TextBox1.Text) Then
             RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text) + vbCrLf
         Else
             MsgBox("File " + TextBox1.Text + " does not exist!")
@@ -53,7 +53,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
-        If fileext.FileExists(TextBox2.Text) OrElse fileext.FolderExists(TextBox2.Text) Then
+        If FSO.FileExists(TextBox2.Text) OrElse FSO.FolderExists(TextBox2.Text) Then
             RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text) + vbCrLf
         Else
             MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
@@ -67,7 +67,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
-        If fileext.FolderExists(TextBox4.Text) OrElse (TextBox4.Text = "") Then
+        If FSO.FolderExists(TextBox4.Text) OrElse (TextBox4.Text = "") Then
             RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text) + vbCrLf
         Else
             MsgBox("Folder " + TextBox4.Text + " does not exist!")
