@@ -7,7 +7,7 @@ Public Class Form4
     End Sub
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Text = "XADB-Device Info-" + deviceRunning
-        Label2.Text = execInShellReturnOutput(Form1.ADBPath + "s " + deviceRunning + " shell getprop ro.product.manufacturer") _
+        Label2.Text = execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell getprop ro.product.manufacturer") _
         + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell getprop ro.product.device") _
         + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell getprop ro.build.version.release") _
         + execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell getprop ro.build.type") _
