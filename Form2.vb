@@ -2,6 +2,8 @@
 Public Class Form2
     Private FSO As New Scripting.FileSystemObject
     Private deviceRunning As String
+    Private deviceInfoForm As Form4
+    Private deviceFileMgrForm As Form3
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         OpenFileDialog1.Filter = "APK|*.apk"
@@ -38,8 +40,12 @@ Public Class Form2
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
-        Dim newForm3 As Form3 = New Form3(CheckBox1.Checked, CheckBox2.Checked, CheckBox3.Checked, deviceRunning)
-        newForm3.Show()
+        If deviceFileMgrForm Is Nothing Then
+            deviceFileMgrForm = New Form3(CheckBox1.Checked, CheckBox2.Checked, CheckBox3.Checked, deviceRunning)
+            deviceFileMgrForm.Show()
+        Else
+            deviceFileMgrForm.Select()
+        End If
     End Sub
 
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -94,6 +100,8 @@ Public Class Form2
     End Sub
 
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
+        If deviceFileMgrForm IsNot Nothing Then deviceFileMgrForm.Close()
+        If deviceInfoForm IsNot Nothing Then deviceInfoForm.Close()
         Me.Close()
     End Sub
 
@@ -109,8 +117,12 @@ Public Class Form2
     End Sub
 
     Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
-        Dim newForm4 As Form4 = New Form4(deviceRunning)
-        newForm4.Show()
+        If deviceInfoForm Is Nothing Then
+            deviceInfoForm = New Form4(deviceRunning)
+            deviceInfoForm.Show()
+        Else
+            deviceInfoForm.Select()
+        End If
     End Sub
 
     Private Sub TextBox6_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox6.KeyPress
@@ -119,4 +131,11 @@ Public Class Form2
         End If
     End Sub
 
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + "root")
+        MsgBox("Please select device again!")
+        If deviceFileMgrForm IsNot Nothing Then deviceFileMgrForm.Close()
+        If deviceInfoForm IsNot Nothing Then deviceInfoForm.Close()
+        Me.Close()
+    End Sub
 End Class

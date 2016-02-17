@@ -66,6 +66,7 @@ Partial Class Form2
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -108,7 +109,7 @@ Partial Class Form2
         Me.RichTextBox1.Location = New System.Drawing.Point(379, 65)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(253, 421)
+        Me.RichTextBox1.Size = New System.Drawing.Size(253, 450)
         Me.RichTextBox1.TabIndex = 4
         Me.RichTextBox1.TabStop = False
         Me.RichTextBox1.Text = ""
@@ -363,7 +364,7 @@ Partial Class Form2
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 525)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 551)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(644, 22)
         Me.StatusStrip1.TabIndex = 17
@@ -411,7 +412,7 @@ Partial Class Form2
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(460, 492)
+        Me.Button13.Location = New System.Drawing.Point(460, 521)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(172, 23)
         Me.Button13.TabIndex = 23
@@ -450,18 +451,28 @@ Partial Class Form2
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(379, 492)
+        Me.Button15.Location = New System.Drawing.Point(379, 521)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
         Me.Button15.TabIndex = 22
         Me.Button15.Text = "Device Info"
         Me.Button15.UseVisualStyleBackColor = True
         '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(79, 521)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(217, 23)
+        Me.Button16.TabIndex = 25
+        Me.Button16.Text = "Restart ADB daemon as root"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(644, 547)
+        Me.ClientSize = New System.Drawing.Size(644, 573)
+        Me.Controls.Add(Me.Button16)
         Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -541,4 +552,5 @@ Partial Class Form2
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
     Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents Button16 As Button
 End Class
