@@ -12,7 +12,7 @@ Public Class Form1
         If FSO.FileExists(ADBPath) Then
             execInShellReturnOutput(ADBPath + "start-server")
             updateADBDevices()
-        ElseIf FSO.FileExists(Replace(Replace(execInShellReturnOutput("where adb"), " ", ""), vbCrLf, ""))
+        ElseIf execInShellReturnOutput("adb version").Contains("version")
             ADBPath = "adb "
             execInShellReturnOutput(ADBPath + "start-server")
             updateADBDevices()
