@@ -82,7 +82,7 @@ Public Class Form2
 
     Private Sub DeviceFileManagerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeviceFileManagerToolStripMenuItem.Click
         MsgBox("Device File Manager 說明......" + vbCrLf + "在資料夾上雙擊進入資料夾" + vbCrLf + "雙擊檔案Pull及打開它" _
-               + vbCrLf + "按右鍵招喚選單" + vbCrLf + "開需要Root的檔案須為userdebug build/eng build" + vbCrLf + "若出現sh:......之類的錯誤試試切換「Change script directory to /sdcard」選項" _
+               + vbCrLf + "按右鍵招喚選單" + vbCrLf + "開需要Root的檔案須為userdebug build/eng build" + vbCrLf + "若出現sh:......之類的錯誤試試切換「Change script directory to /data」選項" _
                + vbCrLf + "出現not found之類的試試「Run with Busybox」", MsgBoxStyle.OkOnly, "Help")
     End Sub
 

@@ -193,13 +193,11 @@ Partial Class Form2
         'CheckBox3
         '
         Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Checked = True
-        Me.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox3.Location = New System.Drawing.Point(8, 62)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(181, 16)
+        Me.CheckBox3.Size = New System.Drawing.Size(170, 16)
         Me.CheckBox3.TabIndex = 15
-        Me.CheckBox3.Text = "Change script directory to /sdcard"
+        Me.CheckBox3.Text = "Change script directory to /data"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'CheckBox2
@@ -217,9 +215,9 @@ Partial Class Form2
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(8, 18)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(78, 16)
+        Me.CheckBox1.Size = New System.Drawing.Size(149, 16)
         Me.CheckBox1.TabIndex = 13
-        Me.CheckBox1.Text = "Run as root"
+        Me.CheckBox1.Text = "Run file commands as root"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'TextBox2
@@ -412,11 +410,11 @@ Partial Class Form2
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(460, 521)
+        Me.Button13.Location = New System.Drawing.Point(413, 521)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(172, 23)
+        Me.Button13.Size = New System.Drawing.Size(219, 23)
         Me.Button13.TabIndex = 23
-        Me.Button13.Text = "Close this window"
+        Me.Button13.Text = "Close windows of this device"
         Me.Button13.UseVisualStyleBackColor = True
         '
         'GroupBox4
@@ -451,7 +449,7 @@ Partial Class Form2
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(379, 521)
+        Me.Button15.Location = New System.Drawing.Point(289, 521)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
         Me.Button15.TabIndex = 22
@@ -460,7 +458,7 @@ Partial Class Form2
         '
         'Button16
         '
-        Me.Button16.Location = New System.Drawing.Point(79, 521)
+        Me.Button16.Location = New System.Drawing.Point(14, 521)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(217, 23)
         Me.Button16.TabIndex = 25

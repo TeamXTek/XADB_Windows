@@ -3,7 +3,7 @@ Public Class Form3
     Private SelectedFloder As String, GoToPath As String, GoToPathBak As String
     Private ChkTypePC As String = My.Application.Info.DirectoryPath + "\XADBChkType.sh", copyfrom As String, copyto As String
     Private createdir As String, execpart As String, execwobb As String, chktypeandroid As String
-    Private useRoot As Boolean, useBusybox As Boolean, changeToSd As Boolean
+    Private useRoot As Boolean, useBusybox As Boolean, changeToData As Boolean
     Private FSO As Scripting.FileSystemObject = New Scripting.FileSystemObject
     Private deviceRunning As String
 
@@ -13,10 +13,10 @@ Public Class Form3
 
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Text = "XADB-Device File Manager-" + deviceRunning
-        If changeToSd = True Then
-            chktypeandroid = " /sdcard/XADBChkType.sh "
-        Else
+        If changeToData = True Then
             chktypeandroid = " /data/XADBChkType.sh "
+        Else
+            chktypeandroid = " /sdcard/XADBChkType.sh "
         End If
         execpart = Form1.ADBPath + " -s " + deviceRunning + " shell "
         If useRoot = True Then
@@ -196,12 +196,12 @@ Public Class Form3
     Private Sub AsRwToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AsRwToolStripMenuItem.Click
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /")
     End Sub
-    
-    Public Sub New(ByVal root As Boolean, ByVal bbox As Boolean, ByVal chtosd As Boolean, ByVal device As String)
+
+    Public Sub New(ByVal root As Boolean, ByVal bbox As Boolean, ByVal chtodata As Boolean, ByVal device As String)
         InitializeComponent()
         useRoot = root
         useBusybox = bbox
-        changeToSd = chtosd
+        changeToData = chtodata
         deviceRunning = device
     End Sub
 End Class
