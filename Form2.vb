@@ -40,7 +40,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
-        If deviceFileMgrForm Is Nothing Then
+        If deviceFileMgrForm Is Nothing OrElse deviceFileMgrForm.IsDisposed Then
             deviceFileMgrForm = New Form3(CheckBox1.Checked, CheckBox2.Checked, CheckBox3.Checked, deviceRunning)
             deviceFileMgrForm.Show()
         Else
@@ -117,7 +117,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
-        If deviceInfoForm Is Nothing Then
+        If deviceInfoForm Is Nothing OrElse deviceInfoForm.IsDisposed Then
             deviceInfoForm = New Form4(deviceRunning)
             deviceInfoForm.Show()
         Else
