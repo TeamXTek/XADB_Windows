@@ -22,15 +22,7 @@ Public Class Form3
         If useRoot = True Then
             execpart += " su -c "
             ActionToolStripMenuItem.Visible = True
-            Dim sOutput2 As String = execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell getprop ro.build.type")
-            ToolStripStatusLabel1.Text = "Running as root"
-            If sOutput2.StartsWith("userdebug") Then
-                Call ADBRootAndRemount()
-                ToolStripStatusLabel1.Text += " on userdebug build"
-            ElseIf sOutput2.StartsWith("eng") Then
-                Call ADBRootAndRemount()
-                ToolStripStatusLabel1.Text += " on eng build"
-            End If
+            ToolStripStatusLabel1.Text = "Running file commands as root"
         Else
             ToolStripStatusLabel1.Text = "Running without root premission"
         End If
@@ -111,16 +103,15 @@ Public Class Form3
         GoToPath = GoToPathBak
     End Sub
 
+    Private Sub DataAsRwToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataAsRwToolStripMenuItem.Click
+        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /data")
+    End Sub
+
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
         If MsgBox("Delete " + Replace(ListBox1.SelectedItem, vbCr, "") + " ?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
             Call DeleteFileOrFolder()
             Call DeviceFileBrowser_EnterFloder()
         End If
-    End Sub
-
-    Private Sub ADBRootAndRemount()
-        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " root")
-        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " remount")
     End Sub
 
     Private Sub PullToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PullToolStripMenuItem.Click

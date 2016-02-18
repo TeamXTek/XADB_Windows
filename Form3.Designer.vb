@@ -41,6 +41,7 @@ Partial Class Form3
         Me.MountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SystemAsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataAsRwToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -160,9 +161,9 @@ Partial Class Form3
         '
         'MountToolStripMenuItem
         '
-        Me.MountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemAsRwToolStripMenuItem, Me.AsRwToolStripMenuItem})
+        Me.MountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemAsRwToolStripMenuItem, Me.AsRwToolStripMenuItem, Me.DataAsRwToolStripMenuItem})
         Me.MountToolStripMenuItem.Name = "MountToolStripMenuItem"
-        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.MountToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MountToolStripMenuItem.Text = "Mount"
         '
         'SystemAsRwToolStripMenuItem
@@ -176,6 +177,12 @@ Partial Class Form3
         Me.AsRwToolStripMenuItem.Name = "AsRwToolStripMenuItem"
         Me.AsRwToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.AsRwToolStripMenuItem.Text = "/ as r/w"
+        '
+        'DataAsRwToolStripMenuItem
+        '
+        Me.DataAsRwToolStripMenuItem.Name = "DataAsRwToolStripMenuItem"
+        Me.DataAsRwToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.DataAsRwToolStripMenuItem.Text = "/data as r/w"
         '
         'Form3
         '
@@ -219,4 +226,5 @@ Partial Class Form3
     Friend WithEvents MountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SystemAsRwToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AsRwToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataAsRwToolStripMenuItem As ToolStripMenuItem
 End Class
