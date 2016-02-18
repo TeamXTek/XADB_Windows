@@ -44,6 +44,7 @@ Public Class Form2
             deviceFileMgrForm = New Form3(CheckBox1.Checked, CheckBox2.Checked, CheckBox3.Checked, deviceRunning)
             deviceFileMgrForm.Show()
         Else
+            deviceFileMgrForm.WindowState = FormWindowState.Normal
             deviceFileMgrForm.Select()
         End If
     End Sub
@@ -121,6 +122,7 @@ Public Class Form2
             deviceInfoForm = New Form4(deviceRunning)
             deviceInfoForm.Show()
         Else
+            deviceInfoForm.WindowState = FormWindowState.Normal
             deviceInfoForm.Select()
         End If
     End Sub
