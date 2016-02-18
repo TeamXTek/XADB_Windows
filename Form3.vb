@@ -46,14 +46,12 @@ Public Class Form3
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
-        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + GoToPath)
+        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + """" + GoToPath + """")
         If sOutput.StartsWith("file") Then
             Call DeviceFileBrowser_PullFile()
         ElseIf sOutput.StartsWith("folder") Then
             GoToPath += "/"
             Call DeviceFileBrowser_EnterFloder()
-        ElseIf GoToPath.Contains(" ") Then
-            MsgBox("Couldn't load " + GoToPath + vbCrLf + "Spaces are not allowed in the name of file / folder.")
         Else
             MsgBox("Couldn't load " + GoToPath + vbCrLf + sOutput)
         End If
@@ -61,7 +59,7 @@ Public Class Form3
     
     Private Sub DeviceFileBrowser_EnterFloder()
         TextBox1.Text = GoToPath
-        Dim soutputspilt() As String = Split(execInShellReturnOutput(execwobb + " ls " + GoToPath), vbCrLf)
+        Dim soutputspilt() As String = Split(execInShellReturnOutput(execwobb + " ls " + """" + GoToPath + """"), vbCrLf)
         Dim a As Byte
         ListBox1.Items.Clear()
         For a = 0 To soutputspilt.GetUpperBound(0)
@@ -71,7 +69,7 @@ Public Class Form3
     End Sub
     
     Private Sub DeviceFileBrowser_PullFile()
-        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + GoToPath)
+        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + """" + GoToPath + """")
         execInShellReturnOutput("start " + My.Application.Info.DirectoryPath + "\" + SelectedFloder)
     End Sub
 
@@ -92,14 +90,7 @@ Public Class Form3
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
-        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + GoToPath)
-        If sOutput.StartsWith("file") Then
-            execInShellReturnOutput(execpart + " rm " + GoToPath)
-        ElseIf sOutput.StartsWith("folder") Then
-            execInShellReturnOutput(execpart + " rmdir -r " + GoToPath)
-        Else
-            MsgBox(sOutput)
-        End If
+        execInShellReturnOutput(execpart + " rm -r " + """" + GoToPath + """")
         GoToPath = GoToPathBak
     End Sub
 
@@ -125,19 +116,15 @@ Public Class Form3
 
     Private Sub CopyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
-        If SelectedFloder.Contains(" ") Then
-            MsgBox("No spaces are allowed in name!")
-        Else
-            copyfrom = Replace(GoToPath + SelectedFloder, vbCr, "")
-            PasteToolStripMenuItem.Visible = True
-        End If
+        copyfrom = Replace(GoToPath + SelectedFloder, vbCr, "")
+        PasteToolStripMenuItem.Visible = True
     End Sub
 
     Private Sub PasteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasteToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
-        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + GoToPath)
+        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + """" + GoToPath + """")
         If sOutput.StartsWith("file") Then
             GoToPath = GoToPathBak
             copyto = GoToPath
@@ -149,33 +136,25 @@ Public Class Form3
             GoToPath = GoToPathBak
         End If
         If MsgBox("Copy " + copyfrom + " to " + copyto + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-            execInShellReturnOutput(execpart + "cp " + copyfrom + " " + copyto)
+            execInShellReturnOutput(execpart + "cp " + """" + copyfrom + """" + " " + """" + copyto + """")
             Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
 
     Private Sub RenameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
-        If SelectedFloder.Contains(" ") Then
-            MsgBox("No spaces are allowed in name!")
-        Else
-            Dim renameto As String = GoToPath + InputBox("Rename " + SelectedFloder + " to")
-            Dim renamefrom As String = GoToPath + Replace(SelectedFloder, vbCr, "")
-            If renameto.Contains(" ") Then
-                MsgBox("No spaces are allowed in name!")
-            ElseIf MsgBox("Rename " + renamefrom + " to " + renameto + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                execInShellReturnOutput(execpart + " mv " + renamefrom + " " + renameto)
-                Call DeviceFileBrowser_EnterFloder()
-            End If
+        Dim renameto As String = GoToPath + InputBox("Rename " + SelectedFloder + " to")
+        Dim renamefrom As String = GoToPath + Replace(SelectedFloder, vbCr, "")
+        If MsgBox("Rename " + renamefrom + " to " + renameto + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+            execInShellReturnOutput(execpart + " mv " + """" + renamefrom + """" + " " + """" + renameto + """")
+            Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
 
     Private Sub NewFolderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewFolderToolStripMenuItem.Click
         createdir = GoToPath + InputBox("Enter a name...")
-        If createdir.Contains(" ") Then
-            MsgBox("No spaces are allowed in name!")
-        ElseIf MsgBox("Create " + createdir + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-            execInShellReturnOutput(execpart + " mkdir " + createdir)
+        If MsgBox("Create " + createdir + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+            execInShellReturnOutput(execpart + " mkdir " + """" + createdir + """")
             Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
