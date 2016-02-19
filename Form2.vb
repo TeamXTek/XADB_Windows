@@ -13,7 +13,7 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If FSO.FileExists(TextBox1.Text) Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + TextBox1.Text) + vbCrLf
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + """" + TextBox1.Text + """") + vbCrLf
         Else
             MsgBox("File " + TextBox1.Text + " does not exist!")
         End If
@@ -61,7 +61,7 @@ Public Class Form2
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         If FSO.FileExists(TextBox2.Text) OrElse FSO.FolderExists(TextBox2.Text) Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + TextBox2.Text + " " + TextBox3.Text) + vbCrLf
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + """" + TextBox2.Text + """" + " " + """" + TextBox3.Text + """") + vbCrLf
         Else
             MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
         End If
@@ -74,8 +74,10 @@ Public Class Form2
     End Sub
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
-        If FSO.FolderExists(TextBox4.Text) OrElse (TextBox4.Text = "") Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + TextBox5.Text + " " + TextBox4.Text) + vbCrLf
+        If FSO.FolderExists(TextBox4.Text) Then
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + """" + TextBox5.Text + """" + " " + """" + TextBox4.Text + """") + vbCrLf
+        ElseIf TextBox4.Text = ""
+            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + """" + TextBox5.Text + """") + vbCrLf
         Else
             MsgBox("Folder " + TextBox4.Text + " does not exist!")
         End If
@@ -88,12 +90,12 @@ Public Class Form2
     End Sub
 
     Private Sub InstallApkToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstallApkToolStripMenuItem.Click
-        MsgBox("Install an apk 說明......" + vbCrLf + "APK檔的路徑請避免有空格" + vbCrLf + "Success代表安裝成功" + vbCrLf + "INSTALL_FAIL_OLDER_SDK代表你的裝置不支援該程式", MsgBoxStyle.OkOnly, "Help")
+        MsgBox("Install an apk 說明......" + vbCrLf + "Success代表安裝成功" + vbCrLf + "INSTALL_FAIL_OLDER_SDK代表你的裝置不支援該程式", MsgBoxStyle.OkOnly, "Help")
     End Sub
 
 
     Private Sub PushPullToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PushPullToolStripMenuItem.Click
-        MsgBox("Push 和 Pull 說明......" + vbCrLf + "路徑請避免空格" + vbCrLf + "成功不會顯示任何東西", MsgBoxStyle.OkOnly, "Help")
+        MsgBox("Push 和 Pull 說明......" + vbCrLf + "成功不會顯示任何東西", MsgBoxStyle.OkOnly, "Help")
     End Sub
 
     Private Sub GoToTeamWALADBlogForMoreHelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Click
