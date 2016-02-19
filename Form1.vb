@@ -7,7 +7,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label4.Text = "Version:" + String.Format(My.Application.Info.Version.ToString)
+        Label4.Text = "XADB version " + String.Format(My.Application.Info.Version.ToString) + vbCrLf
         ADBPath = My.Application.Info.DirectoryPath + "\adb.exe "
         If FSO.FileExists(ADBPath) Then
             execInShellReturnOutput(ADBPath + "start-server")
@@ -20,6 +20,7 @@ Public Class Form1
             MsgBox("ADB Not found!!" + vbCrLf + "Copy ADB files To " + My.Application.Info.DirectoryPath + " or add adb to %PATH% first!")
             Me.Close()
         End If
+        Label4.Text+=execInShellReturnOutput(ADBPath + "version")
     End Sub
 
 
@@ -46,10 +47,6 @@ Public Class Form1
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         execInShellReturnOutput(ADBPath + "kill-server")
         execInShellReturnOutput(ADBPath + "start-server")
-    End Sub
-
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        MsgBox(execInShellReturnOutput(ADBPath + "version"))
     End Sub
 
     Private Sub updateADBDevices()
