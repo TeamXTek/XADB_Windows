@@ -71,7 +71,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 227)
+        Me.Label4.Location = New System.Drawing.Point(10, 221)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(0, 12)
         Me.Label4.TabIndex = 7
