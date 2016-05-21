@@ -1,9 +1,11 @@
-﻿Imports XADB.ClassXADB
+﻿Imports System.ComponentModel
+Imports XADB.ClassXADB
 Public Class Form2
     Private FSO As New Scripting.FileSystemObject
     Private deviceRunning As String
     Private deviceInfoForm As Form4
     Private deviceFileMgrForm As Form3
+    Private cmdBase As String
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         OpenFileDialog1.Filter = "APK|*.apk"
@@ -13,7 +15,7 @@ Public Class Form2
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If FSO.FileExists(TextBox1.Text) Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " install " + """" + TextBox1.Text + """") + vbCrLf
+            execInShellPrintOutputBackground(cmdBase + " install " + """" + TextBox1.Text + """")
         Else
             MsgBox("File " + TextBox1.Text + " does not exist!")
         End If
@@ -24,19 +26,19 @@ Public Class Form2
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot") + vbCrLf
+        execInShellPrintOutputBackground(cmdBase + " reboot")
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot recovery") + vbCrLf
+        execInShellPrintOutputBackground(cmdBase + " reboot recovery")
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " reboot bootloader") + vbCrLf
+        execInShellPrintOutputBackground(cmdBase + " reboot bootloader")
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        RichTextBox1.Text += Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, "") + vbCrLf
+        execInShellPrintOutputBackground(cmdBase + " shell " + """" + TextBox6.Text + """")
     End Sub
 
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
@@ -61,9 +63,9 @@ Public Class Form2
 
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         If FSO.FileExists(TextBox2.Text) OrElse FSO.FolderExists(TextBox2.Text) Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + """" + TextBox2.Text + """" + " " + """" + TextBox3.Text + """") + vbCrLf
+            execInShellPrintOutputBackground(cmdBase + " push " + """" + TextBox2.Text + """" + " " + """" + TextBox3.Text + """")
         Else
-            MsgBox("File/Folder " + TextBox2.Text + " does not exist!")
+            MsgBox("File/Folder " + TextBox2.Text + " does Not exist!")
         End If
     End Sub
 
@@ -75,17 +77,17 @@ Public Class Form2
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
         If FSO.FolderExists(TextBox4.Text) Then
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + """" + TextBox5.Text + """" + " " + """" + TextBox4.Text + """") + vbCrLf
+            execInShellPrintOutputBackground(cmdBase + " pull " + """" + TextBox5.Text + """" + " " + """" + TextBox4.Text + """")
         ElseIf TextBox4.Text = ""
-            RichTextBox1.Text += execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " pull " + """" + TextBox5.Text + """") + vbCrLf
+            execInShellPrintOutputBackground(cmdBase + " pull " + """" + TextBox5.Text + """")
         Else
-            MsgBox("Folder " + TextBox4.Text + " does not exist!")
+            MsgBox("Folder " + TextBox4.Text + " does Not exist!")
         End If
     End Sub
 
     Private Sub DeviceFileManagerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeviceFileManagerToolStripMenuItem.Click
         MsgBox("Device File Manager 說明......" + vbCrLf + "在資料夾上雙擊進入資料夾" + vbCrLf + "雙擊檔案Pull及打開它" _
-               + vbCrLf + "按右鍵招喚選單" + vbCrLf + "若出現sh:......之類的錯誤試試切換「Change script directory to /data」選項" _
+               + vbCrLf + "按右鍵招喚選單" + vbCrLf + "若出現sh: ......之類的錯誤試試切換「Change script directory to /data」選項" _
                + vbCrLf + "出現not found之類的試試「Run with Busybox」", MsgBoxStyle.OkOnly, "Help")
     End Sub
 
@@ -113,10 +115,11 @@ Public Class Form2
         FolderBrowserDialog1.ShowDialog()
         TextBox2.Text = FolderBrowserDialog1.SelectedPath
     End Sub
-    
+
     Public Sub New(ByVal device As String)
         InitializeComponent()
         deviceRunning = device
+        cmdBase = Form1.ADBPath + "-s " + device
     End Sub
 
     Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
@@ -131,7 +134,7 @@ Public Class Form2
 
     Private Sub TextBox6_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox6.KeyPress
         If e.KeyChar = Chr(13) Then
-            RichTextBox1.Text += Replace(execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell " + TextBox6.Text), vbCr, "") + vbCrLf
+            execInShellPrintOutputBackground(cmdBase + " shell " + """" + TextBox6.Text + """")
         End If
     End Sub
 
@@ -141,5 +144,20 @@ Public Class Form2
         If deviceFileMgrForm IsNot Nothing Then deviceFileMgrForm.Close()
         If deviceInfoForm IsNot Nothing Then deviceInfoForm.Close()
         Me.Close()
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        Dim cmd As String = CType(e.Argument, String)
+        e.Result = execInShellReturnOutput(cmd)
+    End Sub
+
+    Private Sub execInShellPrintOutputBackground(cmd As String)
+        ToolStripStatusLabel1.Text = "Executing: " + cmd
+        BackgroundWorker1.RunWorkerAsync(cmd)
+    End Sub
+
+    Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        RichTextBox1.Text += Replace(e.Result, vbCr, "") + vbCrLf
+        ToolStripStatusLabel1.Text = "Done"
     End Sub
 End Class
