@@ -85,25 +85,6 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub DeviceFileManagerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeviceFileManagerToolStripMenuItem.Click
-        MsgBox("Device File Manager 說明......" + vbCrLf + "在資料夾上雙擊進入資料夾" + vbCrLf + "雙擊檔案Pull及打開它" _
-               + vbCrLf + "按右鍵招喚選單" + vbCrLf + "若出現sh: ......之類的錯誤試試切換「Change script directory to /data」選項" _
-               + vbCrLf + "出現not found之類的試試「Run with Busybox」", MsgBoxStyle.OkOnly, "Help")
-    End Sub
-
-    Private Sub InstallApkToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstallApkToolStripMenuItem.Click
-        MsgBox("Install an apk 說明......" + vbCrLf + "Success代表安裝成功" + vbCrLf + "INSTALL_FAIL_OLDER_SDK代表你的裝置不支援該程式", MsgBoxStyle.OkOnly, "Help")
-    End Sub
-
-
-    Private Sub PushPullToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PushPullToolStripMenuItem.Click
-        MsgBox("Push 和 Pull 說明......" + vbCrLf + "成功不會顯示任何東西", MsgBoxStyle.OkOnly, "Help")
-    End Sub
-
-    Private Sub GoToTeamWALADBlogForMoreHelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Click
-        Shell("cmd.exe /c start http://blog.xuite.net/david20000612/TeamWALAD")
-    End Sub
-
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
         If deviceFileMgrForm IsNot Nothing Then deviceFileMgrForm.Close()
         If deviceInfoForm IsNot Nothing Then deviceInfoForm.Close()

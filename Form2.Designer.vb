@@ -55,12 +55,7 @@ Partial Class Form2
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeviceFileManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InstallApkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PushPullToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -68,12 +63,10 @@ Partial Class Form2
         Me.Button15 = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
@@ -109,7 +102,7 @@ Partial Class Form2
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(379, 65)
+        Me.RichTextBox1.Location = New System.Drawing.Point(379, 52)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(253, 450)
@@ -120,7 +113,7 @@ Partial Class Form2
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(377, 41)
+        Me.Label2.Location = New System.Drawing.Point(377, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 12)
         Me.Label2.TabIndex = 5
@@ -128,7 +121,7 @@ Partial Class Form2
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(557, 36)
+        Me.Button3.Location = New System.Drawing.Point(557, 23)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 24
@@ -137,7 +130,7 @@ Partial Class Form2
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(14, 492)
+        Me.Button4.Location = New System.Drawing.Point(14, 479)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 19
@@ -146,7 +139,7 @@ Partial Class Form2
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(156, 492)
+        Me.Button5.Location = New System.Drawing.Point(156, 479)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 20
@@ -155,7 +148,7 @@ Partial Class Form2
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(289, 492)
+        Me.Button6.Location = New System.Drawing.Point(289, 479)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 21
@@ -186,7 +179,7 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Button8)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 327)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 314)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(350, 94)
         Me.GroupBox1.TabIndex = 3
@@ -239,7 +232,7 @@ Partial Class Form2
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.TextBox2)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 121)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 108)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(350, 88)
         Me.GroupBox2.TabIndex = 1
@@ -306,7 +299,7 @@ Partial Class Form2
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.TextBox5)
-        Me.GroupBox3.Location = New System.Drawing.Point(14, 233)
+        Me.GroupBox3.Location = New System.Drawing.Point(14, 220)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(350, 88)
         Me.GroupBox3.TabIndex = 2
@@ -372,49 +365,14 @@ Partial Class Form2
         Me.StatusStrip1.TabIndex = 17
         Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'MenuStrip1
+        'ToolStripStatusLabel1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(644, 24)
-        Me.MenuStrip1.TabIndex = 18
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeviceFileManagerToolStripMenuItem, Me.InstallApkToolStripMenuItem, Me.PushPullToolStripMenuItem, Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'DeviceFileManagerToolStripMenuItem
-        '
-        Me.DeviceFileManagerToolStripMenuItem.Name = "DeviceFileManagerToolStripMenuItem"
-        Me.DeviceFileManagerToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
-        Me.DeviceFileManagerToolStripMenuItem.Text = "Device File Manager"
-        '
-        'InstallApkToolStripMenuItem
-        '
-        Me.InstallApkToolStripMenuItem.Name = "InstallApkToolStripMenuItem"
-        Me.InstallApkToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
-        Me.InstallApkToolStripMenuItem.Text = "Install apk"
-        '
-        'PushPullToolStripMenuItem
-        '
-        Me.PushPullToolStripMenuItem.Name = "PushPullToolStripMenuItem"
-        Me.PushPullToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
-        Me.PushPullToolStripMenuItem.Text = "Push ,Pull"
-        '
-        'GoToTeamWALADBlogForMoreHelpToolStripMenuItem
-        '
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Name = "GoToTeamWALADBlogForMoreHelpToolStripMenuItem"
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
-        Me.GoToTeamWALADBlogForMoreHelpToolStripMenuItem.Text = "Go to Team XTek blog for more help"
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 17)
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(413, 521)
+        Me.Button13.Location = New System.Drawing.Point(413, 508)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(219, 23)
         Me.Button13.TabIndex = 23
@@ -425,7 +383,7 @@ Partial Class Form2
         '
         Me.GroupBox4.Controls.Add(Me.TextBox6)
         Me.GroupBox4.Controls.Add(Me.Button7)
-        Me.GroupBox4.Location = New System.Drawing.Point(14, 427)
+        Me.GroupBox4.Location = New System.Drawing.Point(14, 414)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(350, 59)
         Me.GroupBox4.TabIndex = 4
@@ -444,7 +402,7 @@ Partial Class Form2
         Me.GroupBox5.Controls.Add(Me.TextBox1)
         Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.Button1)
-        Me.GroupBox5.Location = New System.Drawing.Point(14, 36)
+        Me.GroupBox5.Location = New System.Drawing.Point(14, 23)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(350, 62)
         Me.GroupBox5.TabIndex = 0
@@ -453,7 +411,7 @@ Partial Class Form2
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(289, 521)
+        Me.Button15.Location = New System.Drawing.Point(289, 508)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
         Me.Button15.TabIndex = 22
@@ -462,7 +420,7 @@ Partial Class Form2
         '
         'Button16
         '
-        Me.Button16.Location = New System.Drawing.Point(14, 521)
+        Me.Button16.Location = New System.Drawing.Point(14, 508)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(217, 23)
         Me.Button16.TabIndex = 25
@@ -471,11 +429,6 @@ Partial Class Form2
         '
         'BackgroundWorker1
         '
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 17)
         '
         'Form2
         '
@@ -497,8 +450,6 @@ Partial Class Form2
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.Name = "Form2"
         Me.Text = "XADB"
@@ -510,8 +461,6 @@ Partial Class Form2
         Me.GroupBox3.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
@@ -550,12 +499,6 @@ Partial Class Form2
     Friend WithEvents Button12 As System.Windows.Forms.Button
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DeviceFileManagerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents InstallApkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PushPullToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GoToTeamWALADBlogForMoreHelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button13 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
