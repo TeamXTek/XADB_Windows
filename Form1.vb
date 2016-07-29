@@ -2,11 +2,11 @@
 Public Class Form1
     Public ADBPath As String
     Private FSO As New Scripting.FileSystemObject
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         updateADBDevices()
     End Sub
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Label4.Text = "XADB version " + String.Format(My.Application.Info.Version.ToString) + vbCrLf
         ADBPath = My.Application.Info.DirectoryPath + "\adb.exe "
         If FSO.FileExists(ADBPath) Then
@@ -24,7 +24,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         If ComboBox1.Text = "" Then
             MsgBox("Select a device first.")
         ElseIf ComboBox1.Text.EndsWith("offline") Then
@@ -39,12 +39,12 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address And port Of the wireless device."))
         updateADBDevices()
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
         execInShellReturnOutput(ADBPath + "kill-server")
         execInShellReturnOutput(ADBPath + "start-server")
     End Sub

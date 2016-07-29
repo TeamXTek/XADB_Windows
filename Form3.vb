@@ -7,11 +7,11 @@ Public Class Form3
     Private FSO As Scripting.FileSystemObject = New Scripting.FileSystemObject
     Private deviceRunning As String
 
-    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
+    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         DeviceFileBrowser_CheckTypeAndEnter()
     End Sub
 
-    Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form3_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Text = "XADB-Device File Manager-" + deviceRunning
         If changeToData = True Then
             chktypeandroid = " /data/XADBChkType.sh "
@@ -33,7 +33,7 @@ Public Class Form3
         Call PushChkTypeScript()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         If GoToPath <> "/" Then
             Dim backfo As String = GoToPath.TrimEnd("/")
             Dim deletesince = InStrRev(backfo, "/")
@@ -98,14 +98,14 @@ Public Class Form3
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /data")
     End Sub
 
-    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         If MsgBox("Delete " + Replace(ListBox1.SelectedItem, vbCr, "") + " ?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
             Call DeleteFileOrFolder()
             Call DeviceFileBrowser_EnterFloder()
         End If
     End Sub
 
-    Private Sub PullToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PullToolStripMenuItem.Click
+    Private Sub PullToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PullToolStripMenuItem.Click
         If MsgBox("Pull " + Replace(ListBox1.SelectedItem, vbCr, "") + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
             SelectedFloder = ListBox1.SelectedItem
             GoToPathBak = GoToPath
@@ -114,13 +114,13 @@ Public Class Form3
         End If
     End Sub
 
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyToolStripMenuItem.Click
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
         copyfrom = Replace(GoToPath + SelectedFloder, vbCr, "")
         PasteToolStripMenuItem.Visible = True
     End Sub
 
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasteToolStripMenuItem.Click
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PasteToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
@@ -141,7 +141,7 @@ Public Class Form3
         End If
     End Sub
 
-    Private Sub RenameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameToolStripMenuItem.Click
+    Private Sub RenameToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RenameToolStripMenuItem.Click
         SelectedFloder = ListBox1.SelectedItem
         Dim renameto As String = GoToPath + InputBox("Rename " + SelectedFloder + " to")
         Dim renamefrom As String = GoToPath + Replace(SelectedFloder, vbCr, "")
@@ -151,7 +151,7 @@ Public Class Form3
         End If
     End Sub
 
-    Private Sub NewFolderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewFolderToolStripMenuItem.Click
+    Private Sub NewFolderToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles NewFolderToolStripMenuItem.Click
         createdir = GoToPath + InputBox("Enter a name...")
         If MsgBox("Create " + createdir + "?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
             execInShellReturnOutput(execpart + " mkdir " + """" + createdir + """")
@@ -159,11 +159,11 @@ Public Class Form3
         End If
     End Sub
 
-    Private Sub SystemAsRwToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SystemAsRwToolStripMenuItem.Click
+    Private Sub SystemAsRwToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SystemAsRwToolStripMenuItem.Click
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /system")
     End Sub
 
-    Private Sub AsRwToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AsRwToolStripMenuItem.Click
+    Private Sub AsRwToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AsRwToolStripMenuItem.Click
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /")
     End Sub
 

@@ -8,7 +8,7 @@
         oProcess.StartInfo = oStartInfo
         oProcess.Start()
         Dim sOutput As String
-        Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+        Using oStreamReader As IO.StreamReader = oProcess.StandardOutput
             sOutput = oStreamReader.ReadToEnd()
         End Using
         Return sOutput
