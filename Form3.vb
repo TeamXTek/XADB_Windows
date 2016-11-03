@@ -1,8 +1,8 @@
 ﻿Imports XADB.ClassXADB
 Public Class Form3
     Private SelectedFloder As String, GoToPath As String, GoToPathBak As String
-    Private ChkTypePC As String = My.Application.Info.DirectoryPath + "\XADBChkType.sh", copyfrom As String, copyto As String
-    Private createdir As String, execpart As String, execwobb As String, chktypeandroid As String
+    Private copyfrom As String, copyto As String
+    Private createdir As String, execpart As String, execwobb As String
     Private useRoot As Boolean, useBusybox As Boolean, changeToData As Boolean
     Private FSO As Scripting.FileSystemObject = New Scripting.FileSystemObject
     Private deviceRunning As String
@@ -10,14 +10,14 @@ Public Class Form3
     Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         DeviceFileBrowser_CheckTypeAndEnter()
     End Sub
+    
+    Private Function getFileType(filePath As String) As String
+        Return execInShellReturnOutput(execpart + " if [ -d " + """" + filePath + """" +" ];then echo folder;elif [ -f " + """" + filePath + """" _
+            + "];then echo file;else echo error;fi")
+    End Function
 
     Private Sub Form3_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Text = "XADB-Device File Manager-" + deviceRunning
-        If changeToData = True Then
-            chktypeandroid = " /data/XADBChkType.sh "
-        Else
-            chktypeandroid = " /sdcard/XADBChkType.sh "
-        End If
         execpart = Form1.ADBPath + " -s " + deviceRunning + " shell "
         If useRoot = True Then
             execpart += " su -c "
@@ -30,7 +30,6 @@ Public Class Form3
         If useBusybox = True Then execpart += " busybox "
         GoToPath = "/"
         DeviceFileBrowser_EnterFloder()
-        Call PushChkTypeScript()
     End Sub
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
@@ -46,7 +45,7 @@ Public Class Form3
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
-        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + """" + GoToPath + """")
+            Dim sOutput As String = getFileType(GoToPath)
         If sOutput.StartsWith("file") Then
             Call DeviceFileBrowser_PullFile()
         ElseIf sOutput.StartsWith("folder") Then
@@ -78,14 +77,7 @@ Public Class Form3
             DeviceFileBrowser_CheckTypeAndEnter()
         End If
     End Sub
-
-    Private Sub PushChkTypeScript()
-        If FSO.FileExists(ChkTypePC) = False Then
-            MsgBox("Type checking script was not found!" + vbCrLf + "Please put XADBChkType.sh in " + vbCrLf + My.Application.Info.DirectoryPath)
-        End If
-        execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " push " + ChkTypePC + chktypeandroid)
-    End Sub
-
+    
     Private Sub DeleteFileOrFolder()
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
@@ -124,7 +116,7 @@ Public Class Form3
         SelectedFloder = ListBox1.SelectedItem
         GoToPathBak = GoToPath
         GoToPath = Replace(GoToPath + SelectedFloder, vbCr, "")
-        Dim sOutput As String = execInShellReturnOutput(execpart + " sh" + chktypeandroid + """" + GoToPath + """")
+        Dim sOutput As String = getFileType(GoToPath)
         If sOutput.StartsWith("file") Then
             GoToPath = GoToPathBak
             copyto = GoToPath
