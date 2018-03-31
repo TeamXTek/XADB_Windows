@@ -43,7 +43,7 @@ Public Class Form2
 
     Private Sub Button8_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button8.Click
         If deviceFileMgrForm Is Nothing OrElse deviceFileMgrForm.IsDisposed Then
-            deviceFileMgrForm = New Form3(CheckBox1.Checked, CheckBox2.Checked, CheckBox3.Checked, deviceRunning)
+            deviceFileMgrForm = New Form3(CheckBox1.Checked, CheckBox2.Checked, deviceRunning)
             deviceFileMgrForm.Show()
         Else
             deviceFileMgrForm.WindowState = FormWindowState.Normal

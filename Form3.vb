@@ -3,7 +3,7 @@ Public Class Form3
     Private SelectedFloder As String, GoToPath As String, GoToPathBak As String
     Private copyfrom As String, copyto As String
     Private createdir As String, execpart As String, execwobb As String
-    Private useRoot As Boolean, useBusybox As Boolean, changeToData As Boolean
+    Private useRoot As Boolean, useBusybox As Boolean
     Private FSO As Scripting.FileSystemObject = New Scripting.FileSystemObject
     Private deviceRunning As String
 
@@ -159,11 +159,10 @@ Public Class Form3
         execInShellReturnOutput(Form1.ADBPath + "-s " + deviceRunning + " shell su -c mount -ro remount,rw /")
     End Sub
 
-    Public Sub New(ByVal root As Boolean, ByVal bbox As Boolean, ByVal chtodata As Boolean, ByVal device As String)
+    Public Sub New(ByVal root As Boolean, ByVal bbox As Boolean, ByVal device As String)
         InitializeComponent()
         useRoot = root
         useBusybox = bbox
-        changeToData = chtodata
         deviceRunning = device
     End Sub
 End Class

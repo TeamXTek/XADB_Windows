@@ -35,7 +35,6 @@ Partial Class Form2
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -175,7 +174,6 @@ Partial Class Form2
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.CheckBox3)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Button8)
@@ -185,16 +183,6 @@ Partial Class Form2
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Device File Manager"
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(8, 62)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(170, 16)
-        Me.CheckBox3.TabIndex = 15
-        Me.CheckBox3.Text = "Change script directory to /data"
-        Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'CheckBox2
         '
@@ -505,7 +493,6 @@ Partial Class Form2
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
     Friend WithEvents Button15 As System.Windows.Forms.Button
     Friend WithEvents Button16 As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
