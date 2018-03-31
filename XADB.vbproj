@@ -18,8 +18,8 @@
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>EF10937EDC2929907378FF17B458403CEDE2E876</ManifestCertificateThumbprint>
-    <ManifestKeyFile>XADB_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>E67FF63F85A7D95B0B5D0EFCBCCD55050E5209DD</ManifestCertificateThumbprint>
+    <ManifestKeyFile>XADB_2_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <TargetZone>LocalIntranet</TargetZone>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -172,6 +172,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="XADB_1_TemporaryKey.pfx" />
+    <None Include="XADB_2_TemporaryKey.pfx" />
     <None Include="XADB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

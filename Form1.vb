@@ -28,11 +28,11 @@ Public Class Form1
         If ComboBox1.Text = "" Then
             MsgBox("Select a device first.")
         ElseIf ComboBox1.Text.EndsWith("offline") Then
-            MsgBox("Device Is offline.")
+            MsgBox("Device is offline.")
         ElseIf ComboBox1.Text.EndsWith("unauthorized") Then
-            MsgBox("Device Is unauthorized." + vbCrLf + "Please check the confirmation dialog On your device.")
+            MsgBox("Device is unauthorized." + vbCrLf + "Please check the confirmation dialog On your device.")
         ElseIf ComboBox1.Text.EndsWith("recovery") Then
-            MsgBox("Device Is In recovery mode!" + vbCrLf + "Reboot your device into Android first!")
+            MsgBox("Device is in recovery mode!" + vbCrLf + "Reboot your device into Android first!")
         Else
             Dim newForm2 As Form2 = New Form2(ComboBox1.Text)
             newForm2.Show()
@@ -40,13 +40,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
-        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address And port Of the wireless device."))
+        execInShellReturnOutput(ADBPath + "connect " + InputBox("Enter the IP address (and port) of the wireless device."))
         updateADBDevices()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
         execInShellReturnOutput(ADBPath + "kill-server")
         execInShellReturnOutput(ADBPath + "start-server")
+        updateADBDevices()
     End Sub
 
     Private Sub updateADBDevices()
